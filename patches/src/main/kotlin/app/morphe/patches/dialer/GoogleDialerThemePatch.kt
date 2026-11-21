@@ -17,7 +17,7 @@ val googleDialerThemePatch = resourcePatch(
     name = "AMOLED Dark Theme",
     description = "Converts Google Phone dark theme from grey into pure pitch-black (#000000), " +
                   "enhances dialpad readability with pure white text, and fixes unsaved contact avatar outlines.",
-    use = true
+    default = true
 ) {
     compatibleWith(COMPATIBILITY_GOOGLE_DIALER)
 
