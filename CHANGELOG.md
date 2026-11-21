@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.1...v1.0.2) (2026-11-21)
+
+### 🐛 Bug Fixes
+
+* **dialer:** enable clone patch by default for seamless one-tap patching in Simple Mode ([4cc4d4c](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/4cc4d4c10a699de3dafe1eb9bfd81bc018819bb9))
+
 ## [1.0.1](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.0...v1.0.1) (2026-11-21)
 
 ### 🐛 Bug Fixes
