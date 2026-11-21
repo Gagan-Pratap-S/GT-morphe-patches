@@ -13,14 +13,13 @@ plugins {
 group = "app.template"
 
 patches {
-    // TODO: Update this section with your project details.
     about {
-        name = "UserXYZ Patches"
-        description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
+        name = "GT Morphe Patches"
+        description = "AMOLED Dark Theme and package clone patches for Google Phone"
+        source = "https://github.com/Gagan-Pratap-S/GT-morphe-patches"
+        author = "Gagan Pratap Singh"
         contact = "na"
-        website = "na"
+        website = "https://github.com/Gagan-Pratap-S/GT-morphe-patches"
         license = "GPLv3"
     }
 }
