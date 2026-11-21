@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.2...v1.0.3) (2026-11-21)
+
+### 🐛 Bug Fixes
+
+* **dialer:** universally isolate all dialer permissions including TRANSIT_MODE_STATE_CHANGE ([38da419](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/38da4190db8aa30571bb0290475f58062a2dac0c))
+
 ## [1.0.2](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.1...v1.0.2) (2026-11-21)
 
 ### 🐛 Bug Fixes
