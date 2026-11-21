@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.0...v1.0.1) (2026-11-21)
+
+### 🐛 Bug Fixes
+
+* **dialer:** resolve manifest permission and provider conflicts in clone patch ([058d781](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/058d78149173c7516b92f5b9f88d85dea0b19a39))
+
 ## 1.0.0 (2026-11-21)
 
 ### ✨ New Features
