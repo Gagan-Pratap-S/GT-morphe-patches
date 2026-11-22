@@ -35,7 +35,12 @@ jobs:
         run: npm install
 
       - name: Verify compilation and tests
-        run: ./gradlew :patches:buildAndroid --stacktrace
+        run: |
+          ./gradlew :patches:buildAndroid --stacktrace > build.log 2>&1 || {
+            tail -n 50 build.log
+            echo "::error::$(tail -n 20 build.log | tr '\n' ' ')"
+            exit 1
+          }
 
       # Semantic release runs its own Gradle build command.
       # Only dev and main branch will generate a release as specified by .releaserc
