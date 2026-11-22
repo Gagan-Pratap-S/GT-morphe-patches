@@ -37,8 +37,7 @@ jobs:
       - name: Verify compilation and tests
         run: |
           ./gradlew :patches:buildAndroid --stacktrace > build.log 2>&1 || {
-            tail -n 50 build.log
-            echo "::error::$(tail -n 20 build.log | tr '\n' ' ')"
+            echo "::error::$(grep -E "(e:|FAILURE:|What went wrong:|Caused by:)" -A 3 build.log | head -n 20 | tr '\n' ' ')"
             exit 1
           }
 
