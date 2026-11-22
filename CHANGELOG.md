@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.3...v1.0.4) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **dialer:** use decode and document APIs to properly decode and re-encode AMOLED colors into ARSC ([295ec86](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/295ec868a150db2ac345c92fbf1a6024665aac39))
+
 ## [1.0.3](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.2...v1.0.3) (2026-11-21)
 
 ### 🐛 Bug Fixes
