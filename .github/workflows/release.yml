@@ -35,6 +35,8 @@ jobs:
         run: npm install
 
       - name: Verify compilation and tests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ./gradlew :patches:buildAndroid --stacktrace > build.log 2>&1 || {
             echo "::error::$(grep -E "(e:|FAILURE:|What went wrong:|Caused by:)" -A 3 build.log | head -n 20 | tr '\n' ' ')"
