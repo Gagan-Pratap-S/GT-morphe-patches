@@ -1,3 +1,13 @@
+## [1.2.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.1.0...v1.2.0) (2026-11-22)
+
+### ✨ New Features
+
+* **dialer:** inject DroidGuard crash handler, clean uses-library and amoled theme ([9f2ed9a](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/9f2ed9afb2032d066b87d453a47dc308ec8c4e50))
+
+### 🐛 Bug Fixes
+
+* **dialer:** add exactStrings instruction helpers for DroidGuard patch ([34d665f](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/34d665f294a889ec40f6055d9418e15af3458509))
+
 ## [1.1.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.5...v1.1.0) (2026-11-22)
 
 ### ✨ New Features

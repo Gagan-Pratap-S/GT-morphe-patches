@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-22T15:55:15",
-  "description": "## [1.1.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.5...v1.1.0) (2026-11-22)\n\n### ✨ New Features\n\n* **dialer:** replicate v7 UltraSmooth manifest cloning and amoled palette 1:1 ([e5c87c2](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/e5c87c2fd96be6bd1463b7dee628b3506162a5c1))",
-  "download_url": "https://github.com/Gagan-Pratap-S/GT-morphe-patches/releases/download/v1.1.0/patches-1.1.0.mpp",
+  "created_at": "2026-11-22T16:29:58",
+  "description": "## [1.2.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.1.0...v1.2.0) (2026-11-22)\n\n### ✨ New Features\n\n* **dialer:** inject DroidGuard crash handler, clean uses-library and amoled theme ([9f2ed9a](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/9f2ed9afb2032d066b87d453a47dc308ec8c4e50))\n\n### 🐛 Bug Fixes\n\n* **dialer:** add exactStrings instruction helpers for DroidGuard patch ([34d665f](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/34d665f294a889ec40f6055d9418e15af3458509))",
+  "download_url": "https://github.com/Gagan-Pratap-S/GT-morphe-patches/releases/download/v1.2.0/patches-1.2.0.mpp",
   "signature_download_url": "",
-  "version": "1.1.0"
+  "version": "1.2.0"
 }

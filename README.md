@@ -48,11 +48,11 @@ On Android 13 and Android 14+, Android's security sandbox may restrict sideloade
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/releases/tag/v1.1.0)**&nbsp;&nbsp;&middot;&nbsp;&nbsp;`main`&nbsp;&nbsp;&middot;&nbsp;&nbsp;**2 patches** across **1 apps**&nbsp;&nbsp;&middot;&nbsp;&nbsp;[Full details](PATCHES.md)
+> **[v1.2.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/releases/tag/v1.2.0)**&nbsp;&nbsp;&middot;&nbsp;&nbsp;`main`&nbsp;&nbsp;&middot;&nbsp;&nbsp;**3 patches** across **1 apps**&nbsp;&nbsp;&middot;&nbsp;&nbsp;[Full details](PATCHES.md)
 
 | # | App | Patches | Version | Package |
 |---|---|---|---|---|
-| 1 | [**Phone**](PATCHES.md#phone-comgoogleandroiddialer) | 2 | `241.0.996790549` | [`com.google.android.dialer`](https://play.google.com/store/apps/details?id=com.google.android.dialer) |
+| 1 | [**Phone**](PATCHES.md#phone-comgoogleandroiddialer) | 3 | `241.0.996790549` | [`com.google.android.dialer`](https://play.google.com/store/apps/details?id=com.google.android.dialer) |
 <!-- PATCHES_END -->
 
 ---
