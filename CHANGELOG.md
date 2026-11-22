@@ -1,3 +1,9 @@
+## [1.0.5](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.4...v1.0.5) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **dialer:** use native resourceXml and listDecodableFiles for ARSC theme patching and manifest cloning ([8e7a72d](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/8e7a72d8b3b16fd84e248a9c98dcef7a5ef8682b))
+
 ## [1.0.4](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.3...v1.0.4) (2026-11-22)
 
 ### 🐛 Bug Fixes
