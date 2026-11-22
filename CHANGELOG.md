@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.2.0...v1.3.0) (2026-11-22)
+
+### ✨ New Features
+
+* **dialer:** apply full v7 dynamic Material 3 AMOLED palette across values-v31 and values-v34 ([cb0735f](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/cb0735f26084ca18018379278ac0c0192ad6cde1))
+
 ## [1.2.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.1.0...v1.2.0) (2026-11-22)
 
 ### ✨ New Features
