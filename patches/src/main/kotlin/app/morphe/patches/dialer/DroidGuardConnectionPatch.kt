@@ -11,15 +11,20 @@ import app.morphe.patches.dialer.DialerConstants.COMPATIBILITY_GOOGLE_DIALER
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal const val DROIDGUARD_SERVICE = "com.google.android.gms.droidguard.internal.IDroidGuardService"
 internal const val BROKER_SERVICE = "com.google.android.gms.common.internal.IGmsServiceBroker"
 internal const val VERIFICATION_DENIED = "PackageVerificationRslt: not allowed:"
 internal const val DROIDGUARD_REJECTION_LOG = "Rejected DroidGuard connection; reporting DEVELOPER_ERROR"
+
+internal fun Instruction.stringValue() = ((this as? ReferenceInstruction)?.reference as? StringReference)?.string
+internal fun Method.exactStrings() = implementation?.instructions?.mapNotNull { it.stringValue() }?.toSet().orEmpty()
 
 /**
  * Intercepts DroidGuard broker SecurityException on renamed/cloned Google Phone packages
