@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.5...v1.1.0) (2026-11-22)
+
+### ✨ New Features
+
+* **dialer:** replicate v7 UltraSmooth manifest cloning and amoled palette 1:1 ([e5c87c2](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/e5c87c2fd96be6bd1463b7dee628b3506162a5c1))
+
 ## [1.0.5](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.0.4...v1.0.5) (2026-11-22)
 
 ### 🐛 Bug Fixes
