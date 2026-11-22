@@ -3,7 +3,6 @@ package app.morphe.patches.dialer
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.dialer.DialerConstants.COMPATIBILITY_GOOGLE_DIALER
 import org.w3c.dom.Element
-import org.w3c.dom.NodeList
 
 /**
  * AMOLED Dark Theme & Silhouette Avatar Fix for Google Phone (Google Dialer).
@@ -49,51 +48,61 @@ val googleDialerThemePatch = resourcePatch(
         )
 
         // 1. Decode & patch night colors
-        decode("res/values-night*/colors.xml").forEach { path ->
+        val nightFiles = decode("res/values-night*/colors.xml", "res/values-night*/*.xml")
+        println("Theme: found night files: $nightFiles")
+        nightFiles.forEach { path ->
             document(path).use { doc ->
-                doc.getElementsByTagName("color").forEach { elem ->
-                    val name = elem.getAttribute("name")
+                val colors = doc.getElementsByTagName("color")
+                for (i in 0 until colors.length) {
+                    val elem = colors.item(i) as? Element ?: continue
+                    val name = elem.attributes?.getNamedItem("name")?.nodeValue ?: elem.getAttribute("name")
                     val replacement = nightColorReplacements[name]
                     if (replacement != null) {
+                        println("Theme: replacing night color $name -> $replacement in $path")
                         elem.textContent = replacement
+                        if (elem.firstChild != null) {
+                            elem.firstChild.nodeValue = replacement
+                        }
                     }
                 }
             }
         }
 
-        // 2. Decode & patch v34 outline colors
-        decode("res/values*34/colors.xml").forEach { path ->
+        // 2. Decode & patch v34 outline colors and styles
+        val v34Files = decode("res/values*34/colors.xml", "res/values*34/styles.xml", "res/values*34/*.xml")
+        println("Theme: found v34 files: $v34Files")
+        v34Files.forEach { path ->
             document(path).use { doc ->
-                doc.getElementsByTagName("color").forEach { elem ->
-                    val name = elem.getAttribute("name")
+                val colors = doc.getElementsByTagName("color")
+                for (i in 0 until colors.length) {
+                    val elem = colors.item(i) as? Element ?: continue
+                    val name = elem.attributes?.getNamedItem("name")?.nodeValue ?: elem.getAttribute("name")
                     val replacement = outlineReplacements[name]
                     if (replacement != null) {
+                        println("Theme: replacing outline color $name -> $replacement in $path")
                         elem.textContent = replacement
+                        if (elem.firstChild != null) {
+                            elem.firstChild.nodeValue = replacement
+                        }
                     }
                 }
-            }
-        }
 
-        // 3. Decode & patch v34 outline styles
-        decode("res/values*34/styles.xml").forEach { path ->
-            document(path).use { doc ->
-                doc.getElementsByTagName("item").forEach { elem ->
-                    val name = elem.getAttribute("name")
+                val items = doc.getElementsByTagName("item")
+                for (i in 0 until items.length) {
+                    val elem = items.item(i) as? Element ?: continue
+                    val name = elem.attributes?.getNamedItem("name")?.nodeValue ?: elem.getAttribute("name")
                     val replacement = outlineReplacements[name]
                     if (replacement != null) {
+                        println("Theme: replacing outline style item $name -> $replacement in $path")
                         elem.textContent = replacement
+                        if (elem.firstChild != null) {
+                            elem.firstChild.nodeValue = replacement
+                        }
                     }
                 }
             }
         }
 
         println("Google Dialer AMOLED theme successfully applied (v7 1:1)!")
-    }
-}
-
-private fun NodeList.forEach(action: (Element) -> Unit) {
-    for (i in 0 until length) {
-        val node = item(i)
-        if (node is Element) action(node)
     }
 }

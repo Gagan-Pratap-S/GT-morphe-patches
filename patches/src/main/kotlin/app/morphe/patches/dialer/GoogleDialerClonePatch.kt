@@ -2,12 +2,10 @@ package app.morphe.patches.dialer
 
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patches.dialer.DialerConstants.COMPATIBILITY_GOOGLE_DIALER
-import org.w3c.dom.Element
-import org.w3c.dom.NodeList
 
 /**
  * Clones package to com.google.android.dialer.amoled for non-rooted users.
- * Replicates v7 UltraSmooth manifest cloning 1:1.
+ * Combines full v7 manifest isolation with HelioFloxZ node removal.
  */
 @Suppress("unused")
 val googleDialerClonePatch = resourcePatch(
@@ -26,25 +24,33 @@ val googleDialerClonePatch = resourcePatch(
             // 1. Root package attribute
             doc.documentElement.setAttribute("package", newPackageName)
 
-            // 2. Custom permission declarations
-            doc.getElementsByTagName("permission").forEach { perm ->
-                val name = perm.getAttribute("android:name")
+            // 2. Custom permission declarations & usages
+            val permissions = doc.getElementsByTagName("permission")
+            for (i in 0 until permissions.length) {
+                val node = permissions.item(i)
+                val name = node.attributes?.getNamedItem("android:name")?.nodeValue.orEmpty()
                 if (name.startsWith("$packageName.")) {
-                    perm.setAttribute("android:name", name.replaceFirst(packageName, newPackageName))
+                    val newName = name.replaceFirst(packageName, newPackageName)
+                    node.attributes?.getNamedItem("android:name")?.nodeValue = newName
                 }
             }
 
-            // 3. Permission usages
-            doc.getElementsByTagName("uses-permission").forEach { perm ->
-                val name = perm.getAttribute("android:name")
+            val usesPermissions = doc.getElementsByTagName("uses-permission")
+            for (i in 0 until usesPermissions.length) {
+                val node = usesPermissions.item(i)
+                val name = node.attributes?.getNamedItem("android:name")?.nodeValue.orEmpty()
                 if (name.startsWith("$packageName.")) {
-                    perm.setAttribute("android:name", name.replaceFirst(packageName, newPackageName))
+                    val newName = name.replaceFirst(packageName, newPackageName)
+                    node.attributes?.getNamedItem("android:name")?.nodeValue = newName
                 }
             }
 
-            // 4. All provider authorities (v7 1:1: isolation of all authorities)
-            doc.getElementsByTagName("provider").forEach { provider ->
-                val authorities = provider.getAttribute("android:authorities")
+            // 3. Provider authorities isolation
+            val providers = doc.getElementsByTagName("provider")
+            for (i in 0 until providers.length) {
+                val node = providers.item(i)
+                val authAttr = node.attributes?.getNamedItem("android:authorities")
+                val authorities = authAttr?.nodeValue.orEmpty()
                 if (authorities.isNotEmpty()) {
                     val newAuthorities = authorities.split(';').map { auth ->
                         if (auth.startsWith("$packageName.")) {
@@ -55,32 +61,36 @@ val googleDialerClonePatch = resourcePatch(
                             auth
                         }
                     }
-                    provider.setAttribute("android:authorities", newAuthorities.joinToString(";"))
+                    authAttr?.nodeValue = newAuthorities.joinToString(";")
                 }
             }
 
-            // 5. Proprietary Google Dialer Support Library (make optional to prevent crash on non-Pixel devices)
-            doc.getElementsByTagName("uses-library").forEach { lib ->
-                if (lib.getAttribute("android:name") == "com.google.android.dialer.support") {
-                    lib.setAttribute("android:required", "false")
+            // 4. HelioFloxZ approach: REMOVE com.google.android.dialer.support completely
+            val libraryNodes = doc.getElementsByTagName("uses-library")
+            for (i in libraryNodes.length - 1 downTo 0) {
+                val node = libraryNodes.item(i)
+                val name = node.attributes?.getNamedItem("android:name")?.nodeValue
+                if (name == "com.google.android.dialer.support") {
+                    println("Removing com.google.android.dialer.support uses-library node")
+                    node.parentNode?.removeChild(node)
                 }
             }
 
-            // 6. Preferred SIM fallback metadata
-            doc.getElementsByTagName("meta-data").forEach { meta ->
-                if (meta.getAttribute("android:value") == "com.google.android.dialer.preferredsimfallback") {
-                    meta.setAttribute("android:value", "com.google.android.dialer.preferredsimfallback.amoled")
+            // 5. Remove DroidGuard client meta-data tags to prevent Play Integrity launch crash
+            val metaNodes = doc.getElementsByTagName("meta-data")
+            for (i in metaNodes.length - 1 downTo 0) {
+                val node = metaNodes.item(i)
+                val name = node.attributes?.getNamedItem("android:name")?.nodeValue.orEmpty()
+                if (name.contains("droidguardclient")) {
+                    println("Removing droidguardclient meta-data: $name")
+                    node.parentNode?.removeChild(node)
+                }
+                if (node.attributes?.getNamedItem("android:value")?.nodeValue == "com.google.android.dialer.preferredsimfallback") {
+                    node.attributes?.getNamedItem("android:value")?.nodeValue = "com.google.android.dialer.preferredsimfallback.amoled"
                 }
             }
         }
 
-        println("AndroidManifest.xml successfully cloned to $newPackageName (v7 1:1)")
-    }
-}
-
-private fun NodeList.forEach(action: (Element) -> Unit) {
-    for (i in 0 until length) {
-        val node = item(i)
-        if (node is Element) action(node)
+        println("AndroidManifest.xml successfully cloned to $newPackageName")
     }
 }
