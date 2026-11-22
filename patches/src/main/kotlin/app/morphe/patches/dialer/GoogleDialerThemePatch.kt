@@ -33,7 +33,7 @@ val googleDialerThemePatch = resourcePatch(
             "gm3_sys_color_dynamic_dark_on_background" to "#ffffffff",
             "gm3_sys_color_dynamic_dark_on_surface" to "#ffffffff",
             "gm3_sys_color_dynamic_dark_on_surface_variant" to "#ffffffff",
-            "gm3_sys_color_dynamic_dark_outline" to "#ff2f3130",
+            "gm3_sys_color_dynamic_dark_outline" to "@android:color/system_outline_dark",
             "gm3_sys_color_dynamic_dark_outline_variant" to "#ff1c1c1c",
             "gm3_sys_color_dynamic_dark_surface" to "#ff000000",
             "gm3_sys_color_dynamic_dark_surface_bright" to "#ff2f3130",
@@ -55,7 +55,7 @@ val googleDialerThemePatch = resourcePatch(
             "m3_sys_color_dynamic_dark_on_background" to "#ffffffff",
             "m3_sys_color_dynamic_dark_on_surface" to "#ffffffff",
             "m3_sys_color_dynamic_dark_on_surface_variant" to "#ffffffff",
-            "m3_sys_color_dynamic_dark_outline" to "#ff2f3130",
+            "m3_sys_color_dynamic_dark_outline" to "@android:color/system_outline_dark",
             "m3_sys_color_dynamic_dark_outline_variant" to "#ff1c1c1c",
             "m3_sys_color_dynamic_dark_surface" to "#ff000000",
             "m3_sys_color_dynamic_dark_surface_bright" to "#ff2f3130",
@@ -69,7 +69,7 @@ val googleDialerThemePatch = resourcePatch(
             "settingslib_dialog_background" to "#ff000000",
             "settingslib_materialColorOnSurface" to "#ffffffff",
             "settingslib_materialColorOnSurfaceVariant" to "#ffffffff",
-            "settingslib_materialColorOutline" to "#ff2f3130",
+            "settingslib_materialColorOutline" to "@android:color/system_outline_dark",
             "settingslib_materialColorSurfaceContainer" to "#ff000000",
             "settingslib_materialColorSurfaceContainerHigh" to "#ff1c1c1c",
             "settingslib_materialColorSurfaceContainerHighest" to "#ff2f3130",
@@ -81,7 +81,7 @@ val googleDialerThemePatch = resourcePatch(
             "sud_system_background_surface" to "#ff000000",
             "sud_system_on_surface_dark" to "#ffffffff",
             "sud_system_on_surface_variant_dark" to "#ffffffff",
-            "sud_system_outline_dark" to "#ff2f3130",
+            "sud_system_outline_dark" to "@android:color/system_outline_dark",
             "sud_system_outline_variant_dark" to "#ff1c1c1c",
             "sud_system_primary_text" to "#ffffffff",
             "sud_system_sc_highest_dark" to "#ff2f3130",
@@ -119,8 +119,9 @@ val googleDialerThemePatch = resourcePatch(
             "mc3_neutral_variant_10" to "#ff000000",
             "mc3_neutral_variant_20" to "#ff0a0a0a",
             "mc3_on_surface_variant" to "#ff909191",
-            "mc3_outline" to "#ff2f3130",
-            "mc3_outline_variant" to "#ff1c1c1c"
+            "mc3_outline" to "@android:color/system_outline_dark",
+            "mc3_outline_variant" to "#ff1c1c1c",
+            "colorUnsavedContactAvatar" to "#ffe2e2e6"
         )
 
         // List of all primary files to decode and patch
