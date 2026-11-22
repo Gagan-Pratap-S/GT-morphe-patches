@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.3.0...v1.3.1) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **dialer:** restore system dark outline and unsaved contact avatar tint ([f0d9d78](https://github.com/Gagan-Pratap-S/GT-morphe-patches/commit/f0d9d7850e5d29248c70e02f89ec8486de706c10))
+
 ## [1.3.0](https://github.com/Gagan-Pratap-S/GT-morphe-patches/compare/v1.2.0...v1.3.0) (2026-11-22)
 
 ### ✨ New Features
